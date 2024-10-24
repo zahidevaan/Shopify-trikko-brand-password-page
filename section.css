@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  font-size: calc(var(--font-body-scale) * 100%);
+  font-weight: normal;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+img {
+  max-width: 100%;
+}
+video {
+  width: 100%;
+  height: 100%;
+}
+.ze-password-section {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  position: relative;
+}
+.ze-password-background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.ze-background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ze-bacground-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ze-bacground-overly {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+.ze-password-contents {
+  position: inherit;
+  max-width: 650px;
+  width: 90%;
+  height: 100vh;
+  margin: 0 auto;
+  z-index: 3 !important;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.ze-password-logo {
+  position: fixed;
+  top: 20px;
+}
+.ze-password-logo img {
+  width: 150px;
+}
+.ze-titles-werapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.ze-password-title {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: white;
+}
+.ze-password-desc {
+  font-size: 1.5rem;
+  color: white;
+}
+
+/* Password Input field css start here */
+.password-content-div {
+  margin: 0 auto;
+  max-width: 370px;
+  width: 95%;
+}
+.password-form-wrapper {
+  width: 100%;
+  padding: 0;
+  padding-left: 10px;
+}
+
+#login_form {
+  width: 100%;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+#password {
+  width: 100%;
+  height: 60px;
+  padding: 8px 10px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid white;
+  color: #fff;
+  outline: none;
+  box-shadow: none;
+  font-size: 1.5rem;
+}
+#password::placeholder{
+  color: white !important;  
+  font-size: 1.5rem;
+}
+.btn--primary {
+  height: 60px;
+  background-color: #fff;
+  border: none;
+  color: #000;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 6px 25px;
+}
+
+.sumbit-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: black;
+}
+
+/* Signup form css start Here */
+
+.ze-drop-massege {
+  opacity: 0;
+  transition: opacity 0.2s ease, max-height 0.2s ease;
+  overflow: hidden;
+  margin-top: -1rem;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+}
+
+.ze-drop-massege.active {
+  opacity: 1;
+  max-height: auto;
+}
+
+.ze-password-join-btn {
+  background-color: white;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  margin: 0 auto;
+  max-width: 370px;
+  width: 95%;
+  padding: 15px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  color: black;
+}
+
+.ze-password-form-wrapper {
+  max-width: 370px;
+  width: 95%;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.6s ease;
+  margin: 0 auto;
+}
+
+.ze-password-form-wrapper.active {
+  height: 250px;
+}
+
+.ze-password-input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  border-radius: 20px;
+  padding: 5px;
+}
+.ze-name,
+.ze-email,
+.ze-submit {
+  border: none;
+  outline: none;
+  box-shadow: none;
+  padding: 15px 0px;
+  font-size: 2rem;
+  background-color: transparent;
+  color: white;
+  border-bottom: 1px solid white;
+}
+.ze-name,
+.ze-email {
+  width: 100%;
+}
+.ze-submit {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: 1px solid white;
+  width: 100%;
+}
+input:placeholder{
+  color: white;
+  font-size: 2rem;
+}
+input:focus{
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+.errors ul li {
+    color: red;
+    text-align: center;
+    font-size: 1.5rem;
+    box-shadow: none;
+}
+.success-massege{
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+}
