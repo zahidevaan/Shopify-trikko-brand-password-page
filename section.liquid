@@ -1,0 +1,197 @@
+<section class="ze-password-section">
+  <div class="ze-password-background">
+    <video
+      id="myVideo"
+      class="ze-background-video"
+      autoplay
+      loop
+      muted
+      playsinline
+    >
+      <source src="{{ section.settings.background_video.sources[1].url }}" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="ze-bacground-overly"></div>
+
+  <div class="ze-password-contents">
+    
+    {% if section.settings.logo != blank %}
+    <div class="ze-password-logo">
+      <img src="{{ section.settings.logo | image_url }}" alt="" width="" height="">
+    </div>
+    {% endif %}
+    
+    <div class="ze-titles-werapper">
+      {% if section.settings.heading != blank %}
+      <h2 class="ze-password-title">{{ section.settings.heading }}</h2>
+        {% endif %}
+
+      {% if section.settings.sub_heading != blank %}
+      <p class="ze-password-desc">{{ section.settings.sub_heading }}</p>
+        {% endif %}
+    </div>
+
+    <!-- Password Input Field Start Here -->
+    <div class="password-content-div">
+      <div class="password-form-wrapper">
+        <form
+          method="post"
+          action="/password"
+          id="login_form"
+          accept-charset="UTF-8"
+          class="storefront-password-form"
+        >
+          <input
+            type="hidden"
+            name="form_type"
+            value="storefront_password"
+
+          ><input type="hidden" name="utf8" value="✓">
+          <label for="password" class="hidden-label"></label>
+
+          <div class="input-group">
+            <i class="ri-git-repository-private-line lock"></i>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              class="input-group-field"
+              placeholder="Password"
+              autofocus="off"
+            >
+            <button
+              type="submit"
+              class="btn btn--primary password-page__login-form__submit"
+            >
+              <span class="fas fa-sign-in-alt" aria-hidden="true"></span>
+              <span class="sumbit-text">Enter</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Password Input Field End Here -->
+
+    <!-- Signup Form Start Here -->
+    {% if section.settings.join_btn_text != blank %}
+    <button class="ze-password-join-btn">{{ section.settings.join_btn_text }}</button>
+      {% endif %}
+    
+    {% if section.settings.drop_message_text != blank %}
+    <p class="ze-drop-massege active">{{ section.settings.drop_message_text }}</p>
+      {% endif %}
+    
+    <div class="ze-password-form-wrapper">
+      {% if section.settings.external_form != blank %}
+        {{ section.settings.external_form }}
+      {% else %}
+        {% form 'customer' %}
+          {{ form.errors | default_errors }}
+
+          <div class="ze-password-input-group">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+
+            <input
+              class="ze-name"
+              type="text"
+              name="contact[first_name]"
+              placeholder="First Name"
+            >
+            <input
+              class="ze-email"
+              type="email"
+              name="contact[email]"
+              placeholder="Email Address"
+            >
+            <button class="ze-submit" type="submit">Sign Up</button>
+          </div>
+          {% if form.posted_successfully? %}
+            <p class="success-massege">Subscribe successfull, We will get in touch shortly!</p>
+          {% endif %}
+          
+        {% endform %}
+      {% endif %}
+    </div>
+    <!-- Signup Form end Here -->
+  </div>
+</section>
+
+<script type="text/javascript">
+    const JoinBtn = document.querySelector(".ze-password-join-btn");
+  const SignUpForm = document.querySelector(".ze-password-form-wrapper");
+  const DropMassege = document.querySelector(".ze-drop-massege");
+
+  JoinBtn.addEventListener("click", () => {
+
+    if (SignUpForm.classList.contains("active")) {
+      SignUpForm.classList.remove("active");
+    } else {
+      SignUpForm.classList.add("active");
+    }
+
+    if (DropMassege.classList.contains("active")) {
+      DropMassege.classList.remove("active");
+    } else {
+      DropMassege.classList.add("active");
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "New Trikko Brand",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Password Page Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "video",
+      "id": "background_video",
+      "label": "Background Video"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Coming Soon"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "Be the first know when we launch"
+    },
+    {
+      "type": "text",
+      "id": "join_btn_text",
+      "label": "Join Button Text",
+      "default": "Join waitlist for password"
+    },
+    {
+      "type": "text",
+      "id": "drop_message_text",
+      "label": "Drop Message Text",
+      "default": "**DROPS ARE ONLY ACCESSIBLE WITH PASSWORD**"
+    },
+    {
+      "type": "liquid",
+      "id": "external_form",
+      "label": "External Form Code",
+      "info": "Klaviyo Form Code"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "New Trikko Brand"
+    }
+  ]
+}
+{% endschema %}
