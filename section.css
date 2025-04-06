@@ -25,6 +25,9 @@ video {
   background-color: black;
   position: relative;
 }
+.ze-password-section .ze-bacground-overly:empty {
+  display: block !important;
+}
 .ze-password-background {
   width: 100vw;
   height: 100vh;
